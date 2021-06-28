@@ -3,5 +3,6 @@
  <ul>
   <li>Exchange Sort</li>
   <li>Bubble Sort</li>
+  <li>Selection Sort</li>
   <li>Merge Sort</li>
  </ul>
