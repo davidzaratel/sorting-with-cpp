@@ -41,22 +41,26 @@ void bubbleSort(int list[10]){
   }
 }
 
-// void selectionSort(int list[10]){
-//   int max = 0;
-//   for (int i = 0; i < 10; i++) {
-//     max = list[i];
-//     for (int j = i + 1; j < 10; j++) {
-//       //if the number in the position j is bigger than the max number, the max number will change
-//       if (list[j] > max){
-//         int index = 0;
-//         index = j;
-//         max = list[j];
-//       }
-//     }
-//     list[i] = max;
-//
-//   }
-// }
+void selectionSort(int list[10]){
+  int min = 0;
+  int smallindex = 0;
+  int aux = 0;
+  for (int i = 0; i < 9; i++) {
+    smallindex = i;
+    for (int j = i+1; j < 10; j++) {
+      //if the number in the position j is smaller than the max number, the max number will change
+      if (list[j] < list[smallindex])
+        smallindex = j;
+    }
+    //if the number in the position i is the smallest, there won't be any change
+    if (i != smallindex) {
+      aux = list[i];
+      list[i] = list[smallindex];
+      list[smallindex] = aux;
+    }
+
+  }
+}
 
 void printList(int list[10]){
   for (int i = 0; i < 10 ; i++)
@@ -67,6 +71,7 @@ void printList(int list[10]){
 int main(){
     int list[10] = {9, 500, 1, 8, 4, 100, 99, 61, 40, 2};
     int list2[10] = {9, 500, 1, 8, 4, 100, 99, 61, 40, 2};
+    int list3[10] = {9, 500, 1, 8, 4, 100, 99, 61, 40, 2};
     cout<<"Exchange Sort:"<<endl;
     printList(list);
     exchangeSort(list);
@@ -75,5 +80,9 @@ int main(){
     printList(list2);
     bubbleSort(list2);
     printList(list2);
+    cout<<"Selection Sort:"<<endl;
+    printList(list3);
+    selectionSort(list3);
+    printList(list3);
 
 }
